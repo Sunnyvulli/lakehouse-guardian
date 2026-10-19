@@ -9,7 +9,7 @@
     "dbt-core": "1.12.6",
     "dbt-duckdb": "1.11.0"
   },
-  "elapsed_seconds": 13.257283981,
+  "elapsed_seconds": 12.666491293000036,
   "billed_api_cost_usd": 0,
   "cloud_cost_usd": null,
   "proposal": {
@@ -23,9 +23,11 @@
   "result": {
     "status": "unchanged",
     "rows": 17379,
-    "snapshot_id": 2975210789508514311,
+    "snapshot_id": 3271833592087172362,
     "source_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f",
     "observed_days": 731,
-    "rentals": 3292679
+    "rentals": 3292679,
+    "fact_rows": 17379,
+    "weather_categories": 4
   }
 }

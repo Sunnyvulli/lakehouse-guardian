@@ -17,15 +17,19 @@ pip install -r requirements.txt
 make run
 ```
 
-`make run` explicitly approves publication of the bundled, attributed local fixture. It executes an actual LangGraph interrupt/resume, Spark transformation, five dbt checks, and an Iceberg commit. It does not approve any cloud change. Run `python -m guardian.demo` without the approval flag to inspect the interrupted proposal with no publication. `make test eval` runs the behavioral tests and fault experiments.
+`make run` explicitly approves publication of the bundled, attributed local fixture. It executes an actual LangGraph interrupt/resume, Spark transformation, 25 dbt data checks, and an Iceberg commit. It does not approve any cloud change. Run `python -m guardian.demo` without the approval flag to inspect the interrupted proposal with no publication. `make test eval` runs the behavioral tests and fault experiments.
 
 ## What the run demonstrates
 
 - 17,379 real hourly observations, 731 observed dates, and 3,292,679 represented rentals; input SHA-256 and versions retained.
-- Eleven behavioral tests cover contracts, schema errors, approval denial, forged proposal hashes, instruction strings, string booleans, and explicit scoped approval.
+- Thirteen Python tests: eleven workflow tests plus two real dbt integration methods, including four invalid mart candidates. Separately, 25 dbt data checks validate the analytical grain, keys, relationships and reconciliation.
 - 21 controlled batches, seeds 7/17/29: row detection precision 1.00, recall 0.80; zero alarms on three clean controls. These are designed faults on one dataset, not real-world detection accuracy.
 - Spark transforms typed rows; dbt gates daily aggregates before Iceberg mutation. Repeating an identical snapshot is checked against actual table contents and returns `unchanged`.
 - The first observed local run took about 15 seconds after dependency installation; timing depends on the environment. No paid model API is invoked; cloud cost is unmeasured, not zero.
+
+## Analytical mart
+
+`make mart` executes Spark, dbt and a monthly dimensional query with SQL window functions. The recorded run reconciles **17,379 hourly facts / 731 observed dates / 3,292,679 rentals**, with 25 passing dbt data checks. [Definitions and failure cases](docs/dimensional-mart.md) · [raw source/model-hashed results](results/mart.json). Date/hour is the dataset-wide grain; no station/customer records are invented. Missing hours remain missing. This is a full-refresh local analytical model, not CDC or a persistent cloud warehouse.
 
 ## Architecture
 
@@ -56,3 +60,7 @@ Next: durable approval identity/checkpoint storage, independent-source fault lab
 ## Attribution and contribution
 
 Dataset: UCI Bike Sharing, 2011–2012, CC BY 4.0; [source/license/hash](data/SOURCE.md). Python, Spark, Iceberg, dbt, LangGraph, Airflow and Terraform libraries are used under their own licenses. This implementation is original portfolio code; established algorithms and APIs are not claimed as novel. MIT code license. [Contributing](CONTRIBUTING.md).
+
+## Review status
+
+Independent human review is requested, not completed. [Reproduction steps and focused reviewer questions](docs/review-guide.md). CI and self-review are reported separately; no peer-reviewed or production-grade label is claimed.

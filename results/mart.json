@@ -1,0 +1,226 @@
+{
+  "scope": "Full-refresh temporary local DuckDB mart; no AWS, CDC, SCD2 or causal inference",
+  "source_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f",
+  "python": "3.12.14",
+  "versions": {
+    "duckdb": "1.5.6",
+    "dbt-core": "1.12.6",
+    "dbt-duckdb": "1.11.0",
+    "pyspark": "4.2.0"
+  },
+  "model_sha256": {
+    "dbt/models/daily.sql": "0e3afefbf6ad7b57cbf16cffb30635dd3f8fb79e2a8b62cc52a191e95a0295f2",
+    "dbt/models/dim_date.sql": "d631358f6836e2f448a7dc34d04f037f960636b72e1559624a1a708dd3897f29",
+    "dbt/models/dim_weather.sql": "1824bc46ec6420b9a6b252c69d92ed48bf6304bf172fda591b830674aeff77b9",
+    "dbt/models/fact_hourly.sql": "9c274b654d258270468560d22d7d7046a0ba902ba7d59b514577047975d4d002",
+    "dbt/tests/fact_grain.sql": "cbbfb2ce84d69fb7d69ddaf24e0df15f92547c64d480ea394c5c6284f3cd6774",
+    "dbt/tests/fact_measures.sql": "f9aee804c802a07eb0948a9d6475acc65650e666d3800d5ed904727ab743de38",
+    "dbt/tests/fact_reconciliation.sql": "a086cadf16e562dd8b0802d268eb965d736dbc61d2266cc4f5e99c85c01985fb",
+    "dbt/tests/hours.sql": "edcae0c2070c0fcaa8eca5b8534d729aa156ef12dc78e475dfa0d0a7e221c3b7",
+    "dbt/tests/reconcile.sql": "a46dce6ea78b27d7e02db63abb53b2e1c7169905fc59c47003deaa946fd4291b"
+  },
+  "summary": {
+    "observed_days": 731,
+    "rentals": 3292679,
+    "fact_rows": 17379,
+    "weather_categories": 4
+  },
+  "dbt_checks": {
+    "test.guardian.not_null_dim_date_date_key.881d0a31b6": "pass",
+    "test.guardian.unique_dim_date_date_key.0869fd48f9": "pass",
+    "test.guardian.not_null_dim_weather_weather_category.8f2b14bc9e": "pass",
+    "test.guardian.not_null_dim_weather_weather_key.a28481207b": "pass",
+    "test.guardian.unique_dim_weather_weather_category.02f4884d4c": "pass",
+    "test.guardian.unique_dim_weather_weather_key.74dbf3874c": "pass",
+    "test.guardian.fact_grain": "pass",
+    "test.guardian.fact_measures": "pass",
+    "test.guardian.fact_reconciliation": "pass",
+    "test.guardian.not_null_fact_hourly_casual_rentals.8201a1c668": "pass",
+    "test.guardian.not_null_fact_hourly_date_key.9377fc94e9": "pass",
+    "test.guardian.not_null_fact_hourly_observation_key.24511be933": "pass",
+    "test.guardian.not_null_fact_hourly_registered_rentals.8b52d4dc3f": "pass",
+    "test.guardian.not_null_fact_hourly_rentals.b475fda668": "pass",
+    "test.guardian.not_null_fact_hourly_source_record_id.a7105b8fd2": "pass",
+    "test.guardian.not_null_fact_hourly_weather_key.83d7d5efcd": "pass",
+    "test.guardian.relationships_fact_hourly_date_key__date_key__ref_dim_date_.13ac55be38": "pass",
+    "test.guardian.relationships_fact_hourly_weather_key__weather_key__ref_dim_weather_.e28c1acfeb": "pass",
+    "test.guardian.unique_fact_hourly_observation_key.4975ec4261": "pass",
+    "test.guardian.unique_fact_hourly_source_record_id.923c86bb49": "pass",
+    "test.guardian.hours": "pass",
+    "test.guardian.not_null_daily_observed_date.822dab87c1": "pass",
+    "test.guardian.not_null_daily_rentals.06d0725f02": "pass",
+    "test.guardian.reconcile": "pass",
+    "test.guardian.unique_daily_observed_date.5f407d44fd": "pass"
+  },
+  "elapsed_seconds": 12.684814438000103,
+  "monthly": [
+    {
+      "month": "2011-01-01",
+      "observed_hours": 688,
+      "rentals": 38189,
+      "rentals_per_observed_hour": 55.50726744186046,
+      "prior_month_rate": null
+    },
+    {
+      "month": "2011-02-01",
+      "observed_hours": 649,
+      "rentals": 48215,
+      "rentals_per_observed_hour": 74.29121725731895,
+      "prior_month_rate": 55.50726744186046
+    },
+    {
+      "month": "2011-03-01",
+      "observed_hours": 730,
+      "rentals": 64045,
+      "rentals_per_observed_hour": 87.73287671232876,
+      "prior_month_rate": 74.29121725731895
+    },
+    {
+      "month": "2011-04-01",
+      "observed_hours": 719,
+      "rentals": 94870,
+      "rentals_per_observed_hour": 131.9471488178025,
+      "prior_month_rate": 87.73287671232876
+    },
+    {
+      "month": "2011-05-01",
+      "observed_hours": 744,
+      "rentals": 135821,
+      "rentals_per_observed_hour": 182.55510752688173,
+      "prior_month_rate": 131.9471488178025
+    },
+    {
+      "month": "2011-06-01",
+      "observed_hours": 720,
+      "rentals": 143512,
+      "rentals_per_observed_hour": 199.32222222222222,
+      "prior_month_rate": 182.55510752688173
+    },
+    {
+      "month": "2011-07-01",
+      "observed_hours": 744,
+      "rentals": 141341,
+      "rentals_per_observed_hour": 189.9744623655914,
+      "prior_month_rate": 199.32222222222222
+    },
+    {
+      "month": "2011-08-01",
+      "observed_hours": 731,
+      "rentals": 136691,
+      "rentals_per_observed_hour": 186.99179206566347,
+      "prior_month_rate": 189.9744623655914
+    },
+    {
+      "month": "2011-09-01",
+      "observed_hours": 717,
+      "rentals": 127418,
+      "rentals_per_observed_hour": 177.70990237099025,
+      "prior_month_rate": 186.99179206566347
+    },
+    {
+      "month": "2011-10-01",
+      "observed_hours": 743,
+      "rentals": 123511,
+      "rentals_per_observed_hour": 166.2328398384926,
+      "prior_month_rate": 177.70990237099025
+    },
+    {
+      "month": "2011-11-01",
+      "observed_hours": 719,
+      "rentals": 102167,
+      "rentals_per_observed_hour": 142.09596662030597,
+      "prior_month_rate": 166.2328398384926
+    },
+    {
+      "month": "2011-12-01",
+      "observed_hours": 741,
+      "rentals": 87323,
+      "rentals_per_observed_hour": 117.84480431848853,
+      "prior_month_rate": 142.09596662030597
+    },
+    {
+      "month": "2012-01-01",
+      "observed_hours": 741,
+      "rentals": 96744,
+      "rentals_per_observed_hour": 130.5587044534413,
+      "prior_month_rate": 117.84480431848853
+    },
+    {
+      "month": "2012-02-01",
+      "observed_hours": 692,
+      "rentals": 103137,
+      "rentals_per_observed_hour": 149.04190751445086,
+      "prior_month_rate": 130.5587044534413
+    },
+    {
+      "month": "2012-03-01",
+      "observed_hours": 743,
+      "rentals": 164875,
+      "rentals_per_observed_hour": 221.90444145356662,
+      "prior_month_rate": 149.04190751445086
+    },
+    {
+      "month": "2012-04-01",
+      "observed_hours": 718,
+      "rentals": 174224,
+      "rentals_per_observed_hour": 242.6518105849582,
+      "prior_month_rate": 221.90444145356662
+    },
+    {
+      "month": "2012-05-01",
+      "observed_hours": 744,
+      "rentals": 195865,
+      "rentals_per_observed_hour": 263.25940860215053,
+      "prior_month_rate": 242.6518105849582
+    },
+    {
+      "month": "2012-06-01",
+      "observed_hours": 720,
+      "rentals": 202830,
+      "rentals_per_observed_hour": 281.7083333333333,
+      "prior_month_rate": 263.25940860215053
+    },
+    {
+      "month": "2012-07-01",
+      "observed_hours": 744,
+      "rentals": 203607,
+      "rentals_per_observed_hour": 273.6653225806452,
+      "prior_month_rate": 281.7083333333333
+    },
+    {
+      "month": "2012-08-01",
+      "observed_hours": 744,
+      "rentals": 214503,
+      "rentals_per_observed_hour": 288.31048387096774,
+      "prior_month_rate": 273.6653225806452
+    },
+    {
+      "month": "2012-09-01",
+      "observed_hours": 720,
+      "rentals": 218573,
+      "rentals_per_observed_hour": 303.5736111111111,
+      "prior_month_rate": 288.31048387096774
+    },
+    {
+      "month": "2012-10-01",
+      "observed_hours": 708,
+      "rentals": 198841,
+      "rentals_per_observed_hour": 280.84887005649716,
+      "prior_month_rate": 303.5736111111111
+    },
+    {
+      "month": "2012-11-01",
+      "observed_hours": 718,
+      "rentals": 152664,
+      "rentals_per_observed_hour": 212.62395543175487,
+      "prior_month_rate": 280.84887005649716
+    },
+    {
+      "month": "2012-12-01",
+      "observed_hours": 742,
+      "rentals": 123713,
+      "rentals_per_observed_hour": 166.72911051212938,
+      "prior_month_rate": 212.62395543175487
+    }
+  ]
+}

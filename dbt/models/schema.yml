@@ -1,5 +1,44 @@
 version: 2
 models:
+  - name: dim_date
+    description: One row per date actually present in the attributed source.
+    columns:
+      - name: date_key
+        data_tests: [not_null, unique]
+  - name: dim_weather
+    description: Four fixed UCI weather categories; no location or rider dimension exists.
+    columns:
+      - name: weather_key
+        data_tests: [not_null, unique]
+      - name: weather_category
+        data_tests: [not_null, unique]
+  - name: fact_hourly
+    description: One observation per source-wide date/hour. Counts are rentals, not unique people.
+    columns:
+      - name: source_record_id
+        data_tests: [not_null, unique]
+      - name: observation_key
+        data_tests: [not_null, unique]
+      - name: date_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_key
+      - name: weather_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_weather')
+                field: weather_key
+      - name: rentals
+        data_tests: [not_null]
+      - name: casual_rentals
+        data_tests: [not_null]
+      - name: registered_rentals
+        data_tests: [not_null]
   - name: daily
     columns:
       - name: observed_date
