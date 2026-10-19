@@ -1,0 +1,260 @@
+{
+  "scope": "Controlled faults on one historical dataset; labels derive from injected mutations",
+  "source_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f",
+  "seeds": [
+    7,
+    17,
+    29
+  ],
+  "drift_threshold_absolute_mean_shift": 0.1,
+  "batches": 21,
+  "precision": 1.0,
+  "recall": 0.8,
+  "false_alarms_on_clean_batches": 0,
+  "clean_batches": 3,
+  "median_profile_seconds": 0.11223173200005476,
+  "p95_profile_seconds": 0.12255575700010013,
+  "paid_api_calls": 0,
+  "billed_api_cost_usd": 0,
+  "cloud_cost_usd": null,
+  "records": [
+    {
+      "seed": 7,
+      "family": "clean",
+      "rows": 17379,
+      "positive_rows": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.10181698999986111
+    },
+    {
+      "seed": 7,
+      "family": "count",
+      "rows": 17379,
+      "positive_rows": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.10527890999992451
+    },
+    {
+      "seed": 7,
+      "family": "domain",
+      "rows": 17379,
+      "positive_rows": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.10570840099990164
+    },
+    {
+      "seed": 7,
+      "family": "calendar",
+      "rows": 17379,
+      "positive_rows": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.09878060500000174
+    },
+    {
+      "seed": 7,
+      "family": "duplicate",
+      "rows": 17409,
+      "positive_rows": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.11223173200005476
+    },
+    {
+      "seed": 7,
+      "family": "plausible_count",
+      "rows": 17379,
+      "positive_rows": 30,
+      "tp": 0,
+      "fp": 0,
+      "fn": 30,
+      "drift_alarm": false,
+      "seconds": 0.1137164340000254
+    },
+    {
+      "seed": 7,
+      "family": "weather_shift",
+      "rows": 17379,
+      "positive_rows": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": true,
+      "seconds": 0.1418968450000193
+    },
+    {
+      "seed": 17,
+      "family": "clean",
+      "rows": 17379,
+      "positive_rows": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.10144048799998018
+    },
+    {
+      "seed": 17,
+      "family": "count",
+      "rows": 17379,
+      "positive_rows": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.10309636000010869
+    },
+    {
+      "seed": 17,
+      "family": "domain",
+      "rows": 17379,
+      "positive_rows": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.12255575700010013
+    },
+    {
+      "seed": 17,
+      "family": "calendar",
+      "rows": 17379,
+      "positive_rows": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.11017104699999436
+    },
+    {
+      "seed": 17,
+      "family": "duplicate",
+      "rows": 17409,
+      "positive_rows": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.10338093299992579
+    },
+    {
+      "seed": 17,
+      "family": "plausible_count",
+      "rows": 17379,
+      "positive_rows": 30,
+      "tp": 0,
+      "fp": 0,
+      "fn": 30,
+      "drift_alarm": false,
+      "seconds": 0.09820699200008676
+    },
+    {
+      "seed": 17,
+      "family": "weather_shift",
+      "rows": 17379,
+      "positive_rows": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": true,
+      "seconds": 0.11876351099999738
+    },
+    {
+      "seed": 29,
+      "family": "clean",
+      "rows": 17379,
+      "positive_rows": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.12002228599999398
+    },
+    {
+      "seed": 29,
+      "family": "count",
+      "rows": 17379,
+      "positive_rows": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.11742480500015517
+    },
+    {
+      "seed": 29,
+      "family": "domain",
+      "rows": 17379,
+      "positive_rows": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.11354504700011603
+    },
+    {
+      "seed": 29,
+      "family": "calendar",
+      "rows": 17379,
+      "positive_rows": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.1107783909999398
+    },
+    {
+      "seed": 29,
+      "family": "duplicate",
+      "rows": 17409,
+      "positive_rows": 30,
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": false,
+      "seconds": 0.11226751799995327
+    },
+    {
+      "seed": 29,
+      "family": "plausible_count",
+      "rows": 17379,
+      "positive_rows": 30,
+      "tp": 0,
+      "fp": 0,
+      "fn": 30,
+      "drift_alarm": false,
+      "seconds": 0.1149840900000072
+    },
+    {
+      "seed": 29,
+      "family": "weather_shift",
+      "rows": 17379,
+      "positive_rows": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "drift_alarm": true,
+      "seconds": 0.11516750700002376
+    }
+  ],
+  "failure_story": "Reconciled but artificially inflated counts evade the row contracts. Domain checks cannot establish observational truth.",
+  "limitations": [
+    "Mutations are designed and labeled by the project author, not independent real incidents",
+    "Humidity mean shift is not seasonal-adjusted and can flag legitimate distribution changes",
+    "No learned planner or LLM reasoning evaluation; deterministic tool workflow",
+    "Timing is local process wall time, not a service SLA"
+  ]
+}

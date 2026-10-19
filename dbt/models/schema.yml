@@ -1,0 +1,8 @@
+version: 2
+models:
+  - name: daily
+    columns:
+      - name: observed_date
+        data_tests: [not_null, unique]
+      - name: rentals
+        data_tests: [not_null]

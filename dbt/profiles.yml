@@ -1,0 +1,7 @@
+guardian:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: "{{ env_var('GUARDIAN_DB_PATH') }}"
+      threads: 1

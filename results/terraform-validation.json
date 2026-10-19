@@ -1,0 +1,13 @@
+{
+  "format_version": "1.0",
+  "valid": false,
+  "error_count": 1,
+  "warning_count": 0,
+  "diagnostics": [
+    {
+      "severity": "error",
+      "summary": "registry.terraform.io/hashicorp/aws: the cached package for registry.terraform.io/hashicorp/aws 6.65.0 (in .terraform/providers) does not match any of the checksums recorded in the dependency lock file",
+      "detail": ""
+    }
+  ]
+}
