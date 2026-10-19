@@ -1,0 +1,6 @@
+name: guardian
+version: '0.1.0'
+config-version: 2
+profile: guardian
+model-paths: [models]
+test-paths: [tests]

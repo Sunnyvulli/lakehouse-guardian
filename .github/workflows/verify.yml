@@ -1,0 +1,62 @@
+name: Verify lakehouse workflow
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  local-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: pip install -r requirements.txt black==26.10.1
+      - run: make format-check test eval run
+      - name: Verify actual Iceberg replay is a no-op
+        run: |
+          make run
+          python -c "import json; assert json.load(open('results/demo.json'))['result']['status']=='unchanged'"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: local-evidence
+          path: results/
+  airflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: pip install -r requirements-airflow.txt
+      - run: make airflow-test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: airflow-evidence
+          path: results/airflow.json
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.16.6
+      - run: terraform -chdir=infra fmt -check
+      - run: terraform -chdir=infra init -backend=false
+      - run: terraform -chdir=infra validate
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: docker run --rm -e GIT_CONFIG_COUNT=1 -e GIT_CONFIG_KEY_0=safe.directory -e GIT_CONFIG_VALUE_0=/repo -v "$PWD:/repo:ro" ghcr.io/gitleaks/gitleaks:v8.24.2 git /repo --log-opts=--all --redact --no-banner
