@@ -1,0 +1,28 @@
+{
+  "verified_on": "2026-10-19",
+  "source_commit": "a603c9e35bf4f68246c2580cf17dde50cfe9c7a3",
+  "scope": "Executed main CI verified before v0.1.0 release preparation; code and raw metrics are unchanged by packaging.",
+  "checks": [
+    {
+      "name": "terraform",
+      "conclusion": "success",
+      "url": "https://github.com/Sunnyvulli/lakehouse-guardian/actions/runs/39298380990/job/118216753289"
+    },
+    {
+      "name": "secrets",
+      "conclusion": "success",
+      "url": "https://github.com/Sunnyvulli/lakehouse-guardian/actions/runs/39298380990/job/118216753163"
+    },
+    {
+      "name": "local-integration",
+      "conclusion": "success",
+      "url": "https://github.com/Sunnyvulli/lakehouse-guardian/actions/runs/39298380990/job/118216753123"
+    },
+    {
+      "name": "airflow",
+      "conclusion": "success",
+      "url": "https://github.com/Sunnyvulli/lakehouse-guardian/actions/runs/39298380990/job/118216752322"
+    }
+  ],
+  "release_status": "Version content prepared; GitHub release/tag is authoritative for publication."
+}

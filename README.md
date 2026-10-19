@@ -4,7 +4,7 @@ A local Spark/Iceberg data-quality workflow with dbt checks, LangGraph approval 
 
 [![Verification](https://github.com/Sunnyvulli/lakehouse-guardian/actions/workflows/verify.yml/badge.svg)](https://github.com/Sunnyvulli/lakehouse-guardian/actions/workflows/verify.yml)
 
-**Inspect in 60 seconds:** [recorded run](results/demo.json) · [fault evaluation](results/evaluation.json) · [failure analysis](docs/failure-analysis.md) · [decisions](docs/decisions.md). This is a local reference system; AWS resources have not been applied.
+**Inspect in 60 seconds:** [recorded-results explorer](https://sunnyvulli.github.io/lakehouse-guardian/) · [recorded run](results/demo.json) · [fault evaluation](results/evaluation.json) · [failure analysis](docs/failure-analysis.md) · [decisions](docs/decisions.md). This is a local reference system; AWS resources have not been applied.
 
 ## Quick start
 
