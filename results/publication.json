@@ -1,0 +1,33 @@
+{
+  "scope": "Local Spark/Iceberg/dbt/LangGraph demo; no AWS or model call",
+  "python": "3.12.14",
+  "versions": {
+    "langgraph": "1.2.16",
+    "pyspark": "4.2.0",
+    "pyiceberg": "0.12.0",
+    "duckdb": "1.5.6",
+    "dbt-core": "1.12.6",
+    "dbt-duckdb": "1.11.0"
+  },
+  "elapsed_seconds": 12.68887641800029,
+  "billed_api_cost_usd": 0,
+  "cloud_cost_usd": null,
+  "proposal": {
+    "action": "publish_valid_rows",
+    "source_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f",
+    "accepted_rows": 17379,
+    "rejected_rows": 0,
+    "drift": {},
+    "proposal_sha256": "b2c6bc01a9afa5ed876a576c16a38aafed99938b6bf7ee1d603c6a0823d82f52"
+  },
+  "result": {
+    "status": "published",
+    "rows": 17379,
+    "snapshot_id": 3271833592087172362,
+    "source_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f",
+    "observed_days": 731,
+    "rentals": 3292679,
+    "fact_rows": 17379,
+    "weather_categories": 4
+  }
+}

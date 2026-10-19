@@ -16,7 +16,7 @@ jobs:
           distribution: temurin
           java-version: '17'
       - run: pip install -r requirements.txt black==26.10.1
-      - run: make format-check test eval run
+      - run: make format-check test eval run mart
       - name: Verify actual Iceberg replay is a no-op
         run: |
           make run

@@ -1,5 +1,5 @@
 PYTHON ?= python3
-.PHONY: run test eval airflow-test format-check
+.PHONY: run test eval mart airflow-test format-check
 run:
 	SPARK_LOCAL_IP=127.0.0.1 $(PYTHON) -m guardian.demo --approve-local-demo
 test:
@@ -10,3 +10,6 @@ airflow-test:
 	sh scripts/airflow_test.sh
 format-check:
 	$(PYTHON) -m black --check guardian tests dags
+
+mart:
+	SPARK_LOCAL_IP=127.0.0.1 $(PYTHON) -m guardian.mart

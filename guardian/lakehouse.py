@@ -76,10 +76,17 @@ def model_gate(arrow, workspace):
         text=True,
     )
     with duckdb.connect(str(db), read_only=True) as connection:
+        facts = connection.execute("SELECT COUNT(*) FROM fact_hourly").fetchone()[0]
+        weather = connection.execute("SELECT COUNT(*) FROM dim_weather").fetchone()[0]
         days, rentals = connection.execute(
             "SELECT COUNT(*),SUM(rentals) FROM daily"
         ).fetchone()
-    return {"observed_days": days, "rentals": rentals}
+    return {
+        "observed_days": days,
+        "rentals": rentals,
+        "fact_rows": facts,
+        "weather_categories": weather,
+    }
 
 
 def publish(source, rows, plan, warehouse):
