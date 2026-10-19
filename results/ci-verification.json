@@ -1,0 +1,12 @@
+{
+  "verified_commit": "2708caca9a0adc139a2998860c8e1ea0b27ba21f",
+  "checked_on": "2026-10-19",
+  "workflow_run": "https://github.com/Sunnyvulli/lakehouse-guardian/actions/runs/39297144023",
+  "jobs": {
+    "terraform": "success",
+    "local-integration": "success",
+    "airflow": "success",
+    "secrets": "success"
+  },
+  "scope": "Actual clean CI execution; no AWS apply or cloud operation"
+}

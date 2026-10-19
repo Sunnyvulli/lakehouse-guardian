@@ -37,7 +37,7 @@ flowchart TD
  D --> E[Local Iceberg snapshot]
 ```
 
-Airflow separately orchestrates inspect → stage Spark Parquet → dbt checks → pending approval. It cannot grant approval or publish the final table. Its integration test is a real `dag.test()` run with an initialized metadata database, not just an import test. Local execution in the authoring sandbox encountered a process-visibility error; the dedicated CI job must pass before Airflow execution is considered verified. See [operations](docs/operations.md).
+Airflow separately orchestrates inspect → stage Spark Parquet → dbt checks → pending approval. It cannot grant approval or publish the final table. Its integration test is a real `dag.test()` run with an initialized metadata database, not just an import test. The real Airflow integration passed on GitHub’s runner. Local execution in the authoring sandbox encountered a process-visibility error; the clean CI result verifies the DAG in its recorded environment. See [operations](docs/operations.md).
 
 ## Evals and the failure worth discussing
 
@@ -51,7 +51,7 @@ The detector misses injected rental inflation when `casual + registered == cnt` 
 
 The graph is a deterministic tool workflow, not a learned planner benchmark. Approval is an explicit local-operator decision bound to the proposal hash; the in-memory checkpoint is lost on restart, and local process owners are trusted. It is not an authenticated multi-user approval service. Driver collection and full-table comparison are bounded to this historical dataset. Do not infer distributed throughput or production adoption.
 
-Next: durable approval identity/checkpoint storage, independent-source fault labels and seasonal drift calibration, then a separately approved AWS integration. A semantic release is created only after the actual CI checks pass. See [CHANGELOG](CHANGELOG.md).
+Next: durable approval identity/checkpoint storage, independent-source fault labels and seasonal drift calibration, then a separately approved AWS integration. First-release CI passed for the local integration, actual Airflow execution, Terraform validation and full-history scanner. AWS deployment remains pending. See [CHANGELOG](CHANGELOG.md).
 
 ## Attribution and contribution
 
